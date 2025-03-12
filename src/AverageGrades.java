@@ -19,8 +19,23 @@ public class AverageGrades {
 
         // Loop to collect grades
         for (int i = 1; i < 5; i++) {
-            System.out.print(i + "° grade: ");
-            double grade = sc.nextDouble();
+            double grade = 0;
+            boolean validInput = false;
+
+            // Validation to ensure only valid grades are accepted
+            while (!validInput) {
+                System.out.print(i + "° grade: ");
+                grade = sc.nextDouble();
+
+                if (grade >= 0 && grade <= 10) {
+                    validInput = true;
+                } else {
+                    System.out.println();
+                    System.out.println("Invalid grade! Please enter a grade between 0 and 10.");
+                }
+            }
+
+            // Assign the grade using switch statement
             switch(i) {
                 case 1:
                     firstGrade = grade;
